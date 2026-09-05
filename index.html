@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="vinimarques.dev.br - Site em construção"
+    />
+    <title>Vini Marques | Em Construção</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        color: #ffffff;
+        overflow: hidden;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a0a2e 50%,
+          #2d1b4e 100%
+        );
+        background-size: 200% 200%;
+        animation: gradientShift 15s ease infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Orbes de luz roxa no fundo */
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.5;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, #7c3aed, transparent 70%);
+        top: -100px;
+        left: -100px;
+        animation: float 12s ease-in-out infinite;
+      }
+
+      .orb-2 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, #a855f7, transparent 70%);
+        bottom: -80px;
+        right: -80px;
+        animation: float 15s ease-in-out infinite reverse;
+      }
+
+      .orb-3 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, #6b21a8, transparent 70%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 8s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(40px, -40px);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.4;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 0.6;
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 40px 24px;
+        max-width: 720px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        border-radius: 999px;
+        background: rgba(168, 85, 247, 0.08);
+        backdrop-filter: blur(10px);
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #d8b4fe;
+        margin-bottom: 32px;
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .badge-dot {
+        width: 8px;
+        height: 8px;
+        background: #a855f7;
+        border-radius: 50%;
+        box-shadow: 0 0 12px #a855f7;
+        animation: blink 2s ease-in-out infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        font-weight: 800;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #d8b4fe 50%,
+          #a855f7 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fadeInUp 0.8s ease 0.1s both;
+      }
+
+      .subtitle {
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        color: #a0a0a0;
+        margin-bottom: 40px;
+        line-height: 1.6;
+        animation: fadeInUp 0.8s ease 0.2s both;
+      }
+
+      .subtitle strong {
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      .progress-wrapper {
+        max-width: 400px;
+        margin: 0 auto 40px;
+        animation: fadeInUp 0.8s ease 0.3s both;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 60%;
+        background: linear-gradient(90deg, #6b21a8, #a855f7, #d8b4fe);
+        border-radius: 999px;
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+        animation: progress 3s ease-in-out infinite;
+      }
+
+      @keyframes progress {
+        0%,
+        100% {
+          width: 40%;
+        }
+        50% {
+          width: 75%;
+        }
+      }
+
+      .domain {
+        display: inline-block;
+        padding: 10px 22px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        font-family: "Courier New", monospace;
+        font-size: 15px;
+        color: #d8b4fe;
+        margin-bottom: 32px;
+        animation: fadeInUp 0.8s ease 0.4s both;
+      }
+
+      .footer {
+        font-size: 13px;
+        color: #6b6b6b;
+        animation: fadeInUp 0.8s ease 0.5s both;
+      }
+
+      .footer .divider {
+        margin: 0 10px;
+        color: #4a4a4a;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .badge {
+          font-size: 11px;
+          padding: 6px 14px;
+        }
+        .domain {
+          font-size: 13px;
+          padding: 8px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <main class="container">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>Em Desenvolvimento</span>
+      </div>
+
+      <h1>Algo novo está sendo criado</h1>
+
+      <p class="subtitle">
+        Estou construindo minha nova presença digital.<br />
+        <strong>Volte em breve</strong> para conferir o resultado.
+      </p>
+
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="domain">vinimarques.dev.br</div>
+
+      <div class="footer">
+        <span>© 2026 Vini Marques</span>
+        <span class="divider">•</span>
+        <span id="status">Trabalhando nisso agora</span>
+      </div>
+    </main>
+
+    <script>
+      // Mensagens rotativas no status
+      const messages = [
+        "Trabalhando nisso agora",
+        "Ajustando os detalhes",
+        "Escrevendo código",
+        "Quase lá",
+        "Preparando algo especial",
+      ];
+      let i = 0;
+      const statusEl = document.getElementById("status");
+      setInterval(() => {
+        i = (i + 1) % messages.length;
+        statusEl.style.opacity = "0";
+        setTimeout(() => {
+          statusEl.textContent = messages[i];
+          statusEl.style.opacity = "1";
+        }, 300);
+      }, 3500);
+      statusEl.style.transition = "opacity 0.3s ease";
+
+      // Efeito parallax sutil com o mouse
+      document.addEventListener("mousemove", (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        document.querySelector(
+          ".orb-1",
+        ).style.transform = `translate(${x}px, ${y}px)`;
+        document.querySelector(
+          ".orb-2",
+        ).style.transform = `translate(${-x}px, ${-y}px)`;
+      });
+    </script>
+  </body>
+</html>
