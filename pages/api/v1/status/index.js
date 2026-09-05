@@ -1,7 +1,5 @@
 function status(request, response) {
-  response.status(200).json({
-    chave: "texto texte teto tenta trento tonto tanto tempo",
-  });
+  response.status(200).json({ chave: "teste" });
 }
 
 export default status;
