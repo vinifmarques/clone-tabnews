@@ -1,2 +1,7 @@
 .next
 node_modules
+
+# segredos locais
+.env
+.env.*
+!.env.example
